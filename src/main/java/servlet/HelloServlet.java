@@ -35,7 +35,8 @@ public class HelloServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();		
 		//File file=null;
 		try {
-
+			out.println("Working Directory = " +
+              System.getProperty("user.dir"));
 			out.println("h1");
 			//file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
 			FileReader reader = new FileReader(filePath);
