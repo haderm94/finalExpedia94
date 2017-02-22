@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/hello"}
     )
 public class HelloServlet extends HttpServlet {
-	private static final String filePath = "app/getOffers.json";
+	private static final String filePath = "getOffers.json";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
