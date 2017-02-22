@@ -21,7 +21,7 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        ServletOutputStream out = resp.getOutputStream();
+		PrintWriter out = resp.getWriter();		
 		//File file=null;
 		try {
 
@@ -32,17 +32,17 @@ public class HelloServlet extends HttpServlet {
 			JSONArray array = obj.getJSONArray("interests");
 			for(int i = 0 ; i < array.length() ; i++){
 				list.add(array.getJSONObject(i).getString("interestKey"));
-				out.write(list.get(i));
+				out.println(list.get(i));
 			}
 
     } catch (Exception ex) {
         ex.printStackTrace();
     }
 	
-	out.write("h2".getBytes());
+	out.println("h2");
 
         //out.write("hello heroku2".getBytes());
-        out.flush();
+        //out.flush();
         out.close();
     }
 	/* public void parseJson(JSONObject jsonObject ,ServletOutputStream out) throws ParseException {
