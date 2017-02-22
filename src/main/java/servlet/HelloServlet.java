@@ -22,8 +22,12 @@ public class HelloServlet extends HttpServlet {
         ServletOutputStream out = resp.getOutputStream();
 		JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 
-
-        out.write("hello heroku".getBytes());
+List<String> list = new ArrayList<String>();
+JSONArray array = obj.getJSONArray("interests");
+for(int i = 0 ; i < array.length() ; i++){
+    list.add(array.getJSONObject(i).getString("interestKey"));
+}
+        out.write("hello heroku2".getBytes());
         out.flush();
         out.close();
     }
