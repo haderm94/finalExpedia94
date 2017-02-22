@@ -54,7 +54,7 @@ public class HelloServlet extends HttpServlet {
 			
 			// take the elements of the json array
 			for(int i=0; i<HotelArray.size(); i++){
-				System.out.println("The " + i + " element of the array: "+HotelArray.get(i));
+				out.println("The " + i + " element of the array: "+HotelArray.get(i));
 			}
 			/* Iterator i = HotelArray.iterator();
 
