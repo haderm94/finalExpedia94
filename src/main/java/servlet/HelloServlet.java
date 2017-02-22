@@ -19,21 +19,25 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/hello"}
     )
 public class HelloServlet extends HttpServlet {
-
+private static final String filePath = "C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+			
 		PrintWriter out = resp.getWriter();		
 		File file=null;
 		try {
+			FileReader reader = new FileReader(filePath);
 
+			JSONParser jsonParser = new JSONParser();
+			JSONObject obj = (JSONObject) jsonParser.parse(reader);
 			out.println("h1");
-			file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
-			JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
+			//file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
+			//JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
-			JSONArray array = obj.getJSONArray("interests");
+			JSONArray array = obj.getJSONArray("hotelScores");
 			for(int i = 0 ; i < array.length() ; i++){
-				list.add(array.getJSONObject(i).getString("interestKey"));
+				list.add(array.getJSONObject(i).getString("rawAppealScore"));
 				out.println(list.get(i));
 			}
 
