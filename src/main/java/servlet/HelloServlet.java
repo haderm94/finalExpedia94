@@ -26,7 +26,7 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/hello"}
     )
 public class HelloServlet extends HttpServlet {
-	private static final String filePath = "C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json";
+	private static final String filePath = "app/getOffers.json";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -38,7 +38,7 @@ public class HelloServlet extends HttpServlet {
 			out.println("Working Directory = " +
               System.getProperty("user.dir"));
 			out.println("h1");
-			//file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
+			//file = new File("app/getOffers.json");
 			FileReader reader = new FileReader(filePath);
 
 			JSONParser jsonParser = new JSONParser();
