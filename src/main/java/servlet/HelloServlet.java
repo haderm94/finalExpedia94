@@ -25,13 +25,13 @@ public class HelloServlet extends HttpServlet {
 
         JSONParser jsonParser = new JSONParser();
 out.println("h1".getBytes());
-        File file = new File("C:\Users\haderk\Desktop\Expedia94\test\src\main\java\servlet\getOffers.json");
+        File file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
 out.println("h2".getBytes());
         Object object = jsonParser.parse(new FileReader(file));
 
         jsonObject = (JSONObject) object;
 
-        parseJson(jsonObject);
+        parseJson(jsonObject,out);
 
     } catch (Exception ex) {
         ex.printStackTrace();
