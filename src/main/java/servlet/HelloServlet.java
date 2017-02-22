@@ -1,5 +1,5 @@
 package servlet;
-
+import com.googlecode.json-simple.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,7 +7,8 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.util.*;
 //import org.json.*;
-import javax.json.*;
+
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -31,12 +32,12 @@ public class HelloServlet extends HttpServlet {
 
 			out.println("h1");
 			file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
-			JsonParser jsonParser = new JsonParser();
-			JsonObject obj = new JsonObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
+			//JSONParser jsonParser = new JSONParser();
+			JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
-			JsonArray array = obj.getJsonArray("interests");
+			JSONArray array = obj.getJSONArray("interests");
 			for(int i = 0 ; i < array.length() ; i++){
-				list.add(array.getJsonArray(i).getString("interestKey"));
+				list.add(array.getJSONObject(i).getString("interestKey"));
 				out.println(list.get(i));
 			}
 
