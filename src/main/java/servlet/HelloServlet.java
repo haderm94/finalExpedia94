@@ -63,11 +63,15 @@ public class HelloServlet extends HttpServlet {
 				JSONObject hotelPricingInfo = (JSONObject)innerObj.get("hotelPricingInfo");
 				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls");
 				
-				out.println("Destination: "+ destination.get("country") + "-"+ destination.get("city") +"-"+ destination.get("province") +
+				out.println("Destination: "+ destination.get("country") + "-"+ destination.get("city") +
 						", Region ID: " + destination.get("regionID"));
 				
 				out.println("Trip starts at: "+ hotelInfo.get("travelStartDate") + 
 						" To " + hotelInfo.get("travelEndDate")+ ". LengthOfStay " + offerDateRange.get("lengthOfStay"));
+						
+				out.println("hotelStarRating: "+ hotelInfo.get("hotelStarRating") ); 
+				out.println(" hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating"));
+				out.println();
 			}
 			/* // get a number from the JSON object
 			long id =  (long) jsonObject.get("id");
