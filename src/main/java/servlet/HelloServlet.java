@@ -37,7 +37,7 @@ public class HelloServlet extends HttpServlet {
 		try {
 			out.println("Working Directory = " +
               System.getProperty("user.dir"));
-			out.println("h1");
+			
 			//file = new File("app/getOffers.json");
 			FileReader reader = new FileReader(filePath);
 
@@ -46,7 +46,7 @@ public class HelloServlet extends HttpServlet {
 			
 			String firstName = (String) jsonObject.get("firstname");
 			out.println("The first name is: " + firstName);
-
+out.println("h1");
 			/* // get a number from the JSON object
 			long id =  (long) jsonObject.get("id");
 			System.out.println("The id is: " + id);
