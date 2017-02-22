@@ -32,7 +32,7 @@ public class HelloServlet extends HttpServlet {
 			JSONArray array = obj.getJSONArray("interests");
 			for(int i = 0 ; i < array.length() ; i++){
 				list.add(array.getJSONObject(i).getString("interestKey"));
-				out.write(i);
+				out.write(list.get(i));
 			}
 
     } catch (Exception ex) {
