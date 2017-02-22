@@ -44,9 +44,11 @@ public class HelloServlet extends HttpServlet {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);	
 			
-			String firstName = (String) jsonObject.get("firstname");
-			out.println("The first name is: " + firstName);
-out.println("h1");
+			JSONObject offerInfo = (JSONObject)jsonObject.get("offerInfo");
+			String SiteId=(String)offerInfo.get("siteID");
+			out.println("The offerInfo is: " +SiteId );
+			out.println("h1");
+			
 			/* // get a number from the JSON object
 			long id =  (long) jsonObject.get("id");
 			System.out.println("The id is: " + id);
