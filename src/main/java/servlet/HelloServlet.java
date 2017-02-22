@@ -24,11 +24,11 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 		PrintWriter out = resp.getWriter();		
-		//File file=null;
+		File file=null;
 		try {
 
 			out.println("h1");
-			 //file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
+			file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
 			JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
 			JSONArray array = obj.getJSONArray("interests");
@@ -43,28 +43,9 @@ public class HelloServlet extends HttpServlet {
 	
 	out.println("h2");
 
-        //out.write("hello heroku2".getBytes());
-        //out.flush();
+       
         out.close();
     }
-	/* public void parseJson(JSONObject jsonObject ,ServletOutputStream out) throws ParseException {
-
-    Set<Object> set = jsonObject.keySet();
-    Iterator<Object> iterator = set.iterator();
-    while (iterator.hasNext()) {
-        Object obj = iterator.next();
-        if (jsonObject.get(obj) instanceof JSONArray) {
-            out.println(obj.toString());
-            getArray(jsonObject.get(obj));
-        } else {
-            if (jsonObject.get(obj) instanceof JSONObject) {
-                parseJson((JSONObject) jsonObject.get(obj));
-            } else {
-                out.println(obj.toString() + "\t"
-                        + jsonObject.get(obj));
-				}
-			}
-		}
-	} */
+	
     
 }
