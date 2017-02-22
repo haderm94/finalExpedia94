@@ -26,19 +26,22 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/hello"}
     )
 public class HelloServlet extends HttpServlet {
+	private static final String filePath = "C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 			
 		PrintWriter out = resp.getWriter();		
-		File file=null;
+		//File file=null;
 		try {
 
 			out.println("h1");
-			file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
+			//file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
+			FileReader reader = new FileReader(filePath);
+
 			JSONParser jsonParser = new JSONParser();
-			/* JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);			/* JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
 			JSONArray array = obj.getJSONArray("interests");
 			for(int i = 0 ; i < array.length() ; i++){
