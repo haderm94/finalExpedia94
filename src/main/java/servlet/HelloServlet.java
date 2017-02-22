@@ -1,7 +1,8 @@
 package servlet;
 
 import java.io.IOException;
-
+import java.util.*;
+import org.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,9 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         ServletOutputStream out = resp.getOutputStream();
+		JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
+
+
         out.write("hello heroku".getBytes());
         out.flush();
         out.close();
