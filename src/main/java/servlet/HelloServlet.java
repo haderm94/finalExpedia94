@@ -26,20 +26,20 @@ public class HelloServlet extends HttpServlet {
 		try {
 
 			out.println("h1".getBytes());
-			 file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
+			 //file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
 			JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
 			JSONArray array = obj.getJSONArray("interests");
 			for(int i = 0 ; i < array.length() ; i++){
 				list.add(array.getJSONObject(i).getString("interestKey"));
-				out.println(i.toString());
+				out.write(i.toString());
 			}
 
     } catch (Exception ex) {
         ex.printStackTrace();
     }
 	
-	out.println("h2".getBytes());
+	out.write("h2".getBytes());
 
         //out.write("hello heroku2".getBytes());
         out.flush();
