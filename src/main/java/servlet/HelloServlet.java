@@ -8,11 +8,6 @@ import java.io.File;
 import java.util.*;
 import org.json.*;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +31,7 @@ public class HelloServlet extends HttpServlet {
 
 			out.println("h1");
 			file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
-			//JSONParser jsonParser = new JSONParser();
+			JSONParser jsonParser = new JSONParser();
 			JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
 			JSONArray array = obj.getJSONArray("interests");
