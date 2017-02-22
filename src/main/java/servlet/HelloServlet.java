@@ -31,12 +31,9 @@ public class HelloServlet extends HttpServlet {
             throws ServletException, IOException {
 			
 		PrintWriter out = resp.getWriter();		
-		//File file=null;
+		
 		try {
-			out.println("Working Directory = " +
-              System.getProperty("user.dir"));
 			
-			//file = new File("app/getOffers.json");
 			FileReader reader = new FileReader(filePath);
 
 			JSONParser jsonParser = new JSONParser();
@@ -66,9 +63,11 @@ public class HelloServlet extends HttpServlet {
 				JSONObject hotelPricingInfo = (JSONObject)innerObj.get("hotelPricingInfo");
 				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls");
 				
+				out.println("Destination: "+ destination.get("country") + "-"+ destination.get("city") +"-"+ destination.get("province") +
+						", Region ID: " + destination.get("regionID"));
 				
-				out.println("hotelName "+ hotelInfo.get("hotelName") + 
-						" with country " + destination.get("country"));
+				out.println("Trip starts at: "+ hotelInfo.get("travelStartDate") + 
+						" To " + hotelInfo.get("travelEndDate")+ ". LengthOfStay " + offerDateRange.get("lengthOfStay"));
 			}
 			/* // get a number from the JSON object
 			long id =  (long) jsonObject.get("id");
