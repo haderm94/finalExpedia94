@@ -1,12 +1,10 @@
 package servlet;
-//import org.json.simple.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.File;
 import java.util.*;
-//import org.json.*;
 
 
 import org.json.simple.JSONArray;
@@ -53,18 +51,26 @@ public class HelloServlet extends HttpServlet {
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
 			
 			// take the elements of the json array
-			for(int i=0; i<HotelArray.size(); i++){
+			/* for(int i=0; i<HotelArray.size(); i++){
 				out.println("The " + i + " element of the array: "+HotelArray.get(i));
-			}
-			/* Iterator i = HotelArray.iterator();
+			} */
+			Iterator i = HotelArray.iterator();
 
 			// take each value from the json array separately
 			while (i.hasNext()) {
 				JSONObject innerObj = (JSONObject) i.next();
-				System.out.println("language "+ innerObj.get("lang") + 
-						" with level " + innerObj.get("knowledge"));
+				
+				JSONObject offerDateRange = (JSONObject)innerObj.get("offerDateRange");
+				JSONObject destination = (JSONObject)innerObj.get("destination");
+				JSONObject hotelInfo = (JSONObject)innerObj.get("hotelInfo");
+				JSONObject hotelPricingInfo = (JSONObject)innerObj.get("hotelPricingInfo");
+				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls")
+				
+				
+				out.println("hotelName "+ hotelInfo.get("hotelName") + 
+						" with country " + destination.get("country"));
 			}
-			// get a number from the JSON object
+			/* // get a number from the JSON object
 			long id =  (long) jsonObject.get("id");
 			System.out.println("The id is: " + id);
 
