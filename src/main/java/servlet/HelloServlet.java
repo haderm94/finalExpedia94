@@ -31,12 +31,12 @@ public class HelloServlet extends HttpServlet {
 
 			out.println("h1");
 			file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
-			JSONParser jsonParser = new JSONParser();
-			JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
+			JsonParser jsonParser = new JsonParser();
+			JsonObject obj = new JsonObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
-			JSONArray array = obj.getJSONArray("interests");
+			JsonArray array = obj.getJsonArray("interests");
 			for(int i = 0 ; i < array.length() ; i++){
-				list.add(array.getJSONObject(i).getString("interestKey"));
+				list.add(array.getJsonArray(i).getString("interestKey"));
 				out.println(list.get(i));
 			}
 
