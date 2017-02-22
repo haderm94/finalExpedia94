@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.util.*;
 //import org.json.*;
-import javax.json-api-1.0-javadoc.*;
+import javax.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
