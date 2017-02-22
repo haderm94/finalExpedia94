@@ -46,10 +46,25 @@ public class HelloServlet extends HttpServlet {
 			
 			JSONObject offerInfo = (JSONObject)jsonObject.get("offerInfo");
 			String SiteId=(String)offerInfo.get("siteID");
-			out.println("The offerInfo is: " +SiteId );
+			out.println("The SiteId is: " +SiteId );
 			out.println("h1");
 			
-			/* // get a number from the JSON object
+			JSONObject offers = (JSONObject)jsonObject.get("offers");
+			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
+			
+			// take the elements of the json array
+			for(int i=0; i<HotelArray.size(); i++){
+				System.out.println("The " + i + " element of the array: "+HotelArray.get(i));
+			}
+			/* Iterator i = HotelArray.iterator();
+
+			// take each value from the json array separately
+			while (i.hasNext()) {
+				JSONObject innerObj = (JSONObject) i.next();
+				System.out.println("language "+ innerObj.get("lang") + 
+						" with level " + innerObj.get("knowledge"));
+			}
+			// get a number from the JSON object
 			long id =  (long) jsonObject.get("id");
 			System.out.println("The id is: " + id);
 
@@ -72,13 +87,7 @@ public class HelloServlet extends HttpServlet {
 			JSONObject structure = (JSONObject) jsonObject.get("job");
 			System.out.println("Into job structure, name: " + structure.get("name"));
 			 */
-			/* JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
-			List<String> list = new ArrayList<String>();
-			JSONArray array = obj.getJSONArray("interests");
-			for(int i = 0 ; i < array.length() ; i++){
-				list.add(array.getJSONObject(i).getString("interestKey"));
-				out.println(list.get(i));
-			} */
+			
 
     } catch (Exception ex) {
         ex.printStackTrace();
