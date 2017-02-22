@@ -64,7 +64,7 @@ public class HelloServlet extends HttpServlet {
 				JSONObject destination = (JSONObject)innerObj.get("destination");
 				JSONObject hotelInfo = (JSONObject)innerObj.get("hotelInfo");
 				JSONObject hotelPricingInfo = (JSONObject)innerObj.get("hotelPricingInfo");
-				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls")
+				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls");
 				
 				
 				out.println("hotelName "+ hotelInfo.get("hotelName") + 
