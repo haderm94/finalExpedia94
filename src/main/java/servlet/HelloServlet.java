@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/hello"}
     )
 public class HelloServlet extends HttpServlet {
+public  Properties properties = null;
 
+public  JSONObject jsonObject = null;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
