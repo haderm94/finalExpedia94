@@ -43,8 +43,8 @@ public class HelloServlet extends HttpServlet {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);	
 			
-			String firstName = (String) jsonObject.get("siteID");
-			out.println("The first name is: " + firstName);
+			String firstName = (String) jsonObject.get("firstname");
+			System.out.println("The first name is: " + firstName);
 
 			/* // get a number from the JSON object
 			long id =  (long) jsonObject.get("id");
@@ -69,9 +69,6 @@ public class HelloServlet extends HttpServlet {
 			JSONObject structure = (JSONObject) jsonObject.get("job");
 			System.out.println("Into job structure, name: " + structure.get("name"));
 			 */
-			 
-			 //*****************************//
-			 
 			/* JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
 			JSONArray array = obj.getJSONArray("interests");
