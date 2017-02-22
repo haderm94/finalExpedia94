@@ -36,7 +36,7 @@ public class HelloServlet extends HttpServlet {
 
 			out.println("h1");
 			file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
-			JSONParser jsonParser = new JSONParser();
+			//JSONParser jsonParser = new JSONParser();
 			JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
 			JSONArray array = obj.getJSONArray("interests");
