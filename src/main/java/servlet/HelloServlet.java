@@ -26,6 +26,7 @@ List<String> list = new ArrayList<String>();
 JSONArray array = obj.getJSONArray("interests");
 for(int i = 0 ; i < array.length() ; i++){
     list.add(array.getJSONObject(i).getString("interestKey"));
+	out.append(list.get(i).toString());
 }
         out.write("hello heroku2".getBytes());
         out.flush();
