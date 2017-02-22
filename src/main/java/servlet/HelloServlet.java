@@ -22,10 +22,10 @@ public class HelloServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         ServletOutputStream out = resp.getOutputStream();
-		File file=null;
+		//File file=null;
 		try {
 
-			out.println("h1".getBytes());
+			out.println("h1");
 			 //file = new File("C:\\Users\\haderk\\Desktop\\Expedia94\\test\\src\\main\\java\\servlet\\getOffers.json");
 			JSONObject obj = new JSONObject("{interests : [{interestKey:Dogs}, {interestKey:Cats}]}");
 			List<String> list = new ArrayList<String>();
