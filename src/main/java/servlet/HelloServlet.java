@@ -129,8 +129,8 @@ public class HelloServlet extends HttpServlet {
     }
 	
 
-		//RequestDispatcher dd=req.getRequestDispatcher("deals.jsp");
-		//dd.forward(req, resp);
+		RequestDispatcher dd=req.getRequestDispatcher("deals.jsp");
+		dd.forward(req, resp);
 		//out.close();
 		out.println("h3");//
 		return;
