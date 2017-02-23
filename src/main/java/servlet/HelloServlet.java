@@ -133,7 +133,7 @@ class HotelInformation{
 				String hotelName=hotelInfo.get("hotelName").toString();
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
-				String originalPricePerNight=hotelInfo.get("averagePriceValue").toString();
+				String pricePerNight=hotelInfo.get("averagePriceValue").toString();
 				
 				HotelInformation info=new HotelInformation();
 
@@ -143,7 +143,7 @@ class HotelInformation{
 				info.setImgPath(imgPath);
 				info.setDescription(description);
 				info.setHotelName(hotelName);
-				info.setNightPrice(originalPricePerNight);
+				info.setNightPrice(pricePerNight);
 				
 				list.add(info); /**/
 						
