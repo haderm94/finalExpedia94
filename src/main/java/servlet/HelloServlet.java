@@ -25,52 +25,7 @@ import javax.servlet.http.HttpServletResponse;
     )
 
 public class HelloServlet extends HttpServlet {
-class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description;
-	public HotelInformation(){}
-	
-    public String getDest() {
-        return dest;
-    }
 
-    public void setDest(String dest) {
-        this.dest = dest;
-    }
-
-    public String getTripDate() {
-        return tripDate;
-    }
-
-    public void setTripDate(String tripDate) {
-        this.tripDate = tripDate;
-    }
-
-    public String getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(String ratings) {
-        this.ratings = ratings;
-    }
-
-    public String getImgPath() {
-        return imgPath;
-    }
-
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-}
 	private static final String filePath = "getOffers.json";
 
     @Override
@@ -88,10 +43,7 @@ class HotelInformation{
 			JSONObject offers = (JSONObject)jsonObject.get("offers");
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
 			int hotelsCount=HotelArray.size();
-			req.setAttribute("hotelsCount",hotelsCount);
 			
-			List<HotelInformation> list=new ArrayList<HotelInformation>();
-			//HotelInfo list[] = new HotelInfo[hotelsCount];
 			Iterator i = HotelArray.iterator();
 			int count=0;
 			while (i.hasNext()) {
@@ -109,20 +61,10 @@ class HotelInformation{
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
-				HotelInformation info=new HotelInformation();
-
-				
-				info.setDest(dest);
-				info.setTripDate(tripDate);
-				info.setRatings(ratings);
-				info.setImgPath(imgPath);
-				info.setDescription(description);
-				//count++;
-				list.add(info); /**/
+		
 						
 				
 			}
-			req.setAttribute("listOfHotels",list);
 			
 
     } catch (Exception ex) {
@@ -130,10 +72,9 @@ class HotelInformation{
     }
 	
 
-		RequestDispatcher dd=req.getRequestDispatcher("deals.jsp");
-		dd.forward(req, resp);
-		//out.close();
-		out.println("h3");//
+		out.println("h3");
+		out.close();
+		
 		return;
     }
 	}
