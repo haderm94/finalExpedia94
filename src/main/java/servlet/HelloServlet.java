@@ -123,7 +123,7 @@ class HotelInformation{
 			}
 				
 				for(HotelInformation hotel : list){
-					out.println("<img src="+hotel.getImgPath+" >");
+					out.println("<img src="+hotel.getImgPath()+" >");
                  
 				}
 
@@ -132,8 +132,6 @@ class HotelInformation{
     }
 	
 
-	
-		
 		out.println("h3");
 		out.close();
 		return;
