@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
         name = "MyServlet", 
         urlPatterns = {"/hello"}
     )
+
+public class HelloServlet extends HttpServlet {
 class HotelInformation{
     private String dest,tripDate,ratings,imgPath,description;
 	public HotelInformation(){}
@@ -69,7 +71,6 @@ class HotelInformation{
 
 
 }
-public class HelloServlet extends HttpServlet {
 	private static final String filePath = "getOffers.json";
 
     @Override
