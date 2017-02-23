@@ -112,10 +112,10 @@ class HotelInformation{
 				JSONObject hotelPricingInfo = (JSONObject)innerObj.get("hotelPricingInfo");
 				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls");
 				
-				String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +", Region ID: " + destination.get("regionID");
-				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ ". LengthOfStay " + offerDateRange.get("lengthOfStay");
-				String ratings="hotelStarRating: "+ hotelInfo.get("hotelStarRating");
-				ratings+="hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating");
+				String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +",   Region ID: " + destination.get("regionID");
+				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ "<br>LengthOfStay " + offerDateRange.get("lengthOfStay");
+				String ratings="hotelStarRating: "+ hotelInfo.get("hotelStarRating")+"<br>"+"hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating");
+				
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
