@@ -26,9 +26,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet {
 class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description;
+    private String dest,tripDate,ratings,imgPath,description,hotelName;
 	public HotelInformation(){}
-	
+	public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
     public String getDest() {
         return dest;
     }
@@ -115,7 +121,7 @@ class HotelInformation{
 				String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +",   Region ID: " + destination.get("regionID");
 				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ "<br>LengthOfStay " + offerDateRange.get("lengthOfStay");
 				String ratings="hotelStarRating: "+ hotelInfo.get("hotelStarRating")+"<br>"+"hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating");
-				
+				String hotelName=hotelInfo.get("hotelName");
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
@@ -127,13 +133,14 @@ class HotelInformation{
 				info.setRatings(ratings);
 				info.setImgPath(imgPath);
 				info.setDescription(description);
-				
+				info.setHotelName(hotelName);
 				list.add(info); /**/
 						
 				
 			}
 				
 				for(HotelInformation hotel : list){
+					out.println("<h3>"+hotel.getHotelName()+"</h3>");
 					out.println("<img src=\""+hotel.getImgPath()+"\">");
 					out.println("<p>"+hotel.getDest()+"</p>");
 					out.println("<p>"+hotel.getTripDate()+"</p>");
