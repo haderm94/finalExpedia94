@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.util.*;
 import java.util.List;
-import HotelInfo.*;
 import javax.servlet.RequestDispatcher;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -24,6 +23,52 @@ import javax.servlet.http.HttpServletResponse;
         name = "MyServlet", 
         urlPatterns = {"/hello"}
     )
+class HotelInfo{
+    String dest,tripDate,ratings,imgPath,description;
+	
+	
+    public String getDest() {
+        return dest;
+    }
+
+    public void setDest(String dest) {
+        this.dest = dest;
+    }
+
+    public String getTripDate() {
+        return tripDate;
+    }
+
+    public void setTripDate(String tripDate) {
+        this.tripDate = tripDate;
+    }
+
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+}
 public class HelloServlet extends HttpServlet {
 	private static final String filePath = "getOffers.json";
 
@@ -63,7 +108,7 @@ public class HelloServlet extends HttpServlet {
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
-				HotelInfo hotelInfo=new HotelInfo();
+				/* HotelInfo hotelInfo=new HotelInfo();
 				
 				hotelInfo.setDest(dest);
 				hotelInfo.setTripDate(tripDate);
@@ -71,7 +116,7 @@ public class HelloServlet extends HttpServlet {
 				hotelInfo.setImgPath(imgPath);
 				hotelInfo.setDescription(description);
 				
-				list.add(hotelInfo);
+				list.add(hotelInfo); */
 						
 				
 			}
