@@ -64,7 +64,7 @@ public class HelloServlet extends HttpServlet {
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
-				// HotelInfo hotelInfo=new HotelInfo();
+				 HotelInfo hotelInfo=new HotelInfo();
 				/*
 				list[count].setDest(dest);
 				list[count].setTripDate(tripDate);
