@@ -91,7 +91,7 @@ public class HelloServlet extends HttpServlet {
 			req.setAttribute("hotelsCount",hotelsCount);
 			
 			//List<String> list=new ArrayList<String>();
-			//HotelInfo list[] = new HotelInfo[hotelsCount];
+			HotelInfo list[] = new HotelInfo[hotelsCount];
 			Iterator i = HotelArray.iterator();
 			int count=0;
 			while (i.hasNext()) {
