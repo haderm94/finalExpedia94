@@ -91,7 +91,7 @@ public class HelloServlet extends HttpServlet {
 			req.setAttribute("hotelsCount",hotelsCount);
 			
 			//List<String> list=new ArrayList<String>();
-			HotelInfo list[] = new HotelInfo[hotelsCount];
+			//HotelInfo list[] = new HotelInfo[hotelsCount];
 			Iterator i = HotelArray.iterator();
 			int count=0;
 			while (i.hasNext()) {
@@ -110,14 +110,14 @@ public class HelloServlet extends HttpServlet {
 				String description=hotelInfo.get("description").toString();
 				
 				// HotelInfo hotelInfo=new HotelInfo();
-				
+				/*
 				list[count].setDest(dest);
 				list[count].setTripDate(tripDate);
 				list[count].setRatings(ratings);
 				list[count].setImgPath(imgPath);
 				list[count].setDescription(description);
 				count++;
-				//list.add(hotelInfo); /**/
+				//list.add(hotelInfo); */
 						
 				
 			}
