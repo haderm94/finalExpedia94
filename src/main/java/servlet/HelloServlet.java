@@ -45,7 +45,7 @@ public class HelloServlet extends HttpServlet {
 			int hotelsCount=HotelArray.size();
 			req.setAttribute("hotelsCount",hotelsCount);
 			
-			List<HotelInfo> list=new ArrayList<>();
+			List<HotelInfo> list=new ArrayList<HotelInfo>();
 
 			Iterator i = HotelArray.iterator();
 			while (i.hasNext()) {
