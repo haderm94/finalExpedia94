@@ -111,18 +111,18 @@ class HotelInformation{
 				
 				HotelInformation info=new HotelInformation();
 
-				/*
-				list[count].setDest(dest);
-				list[count].setTripDate(tripDate);
-				list[count].setRatings(ratings);
-				list[count].setImgPath(imgPath);
-				list[count].setDescription(description);
-				count++;
-				//list.add(hotelInfo); */
+				
+				info.setDest(dest);
+				info.setTripDate(tripDate);
+				info.setRatings(ratings);
+				linfo.setImgPath(imgPath);
+				info.setDescription(description);
+				//count++;
+				list.add(info); /**/
 						
 				
 			}
-			//req.setAttribute("listOfHotels",hotelInfo);
+			req.setAttribute("listOfHotels",list);
 			
 
     } catch (Exception ex) {
