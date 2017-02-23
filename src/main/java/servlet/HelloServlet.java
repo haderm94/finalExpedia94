@@ -23,7 +23,52 @@ import javax.servlet.http.HttpServletResponse;
         name = "MyServlet", 
         urlPatterns = {"/hello"}
     )
+class HotelInfo{
+    String dest,tripDate,ratings,imgPath,description;
+	
+	
+    public String getDest() {
+        return dest;
+    }
 
+    public void setDest(String dest) {
+        this.dest = dest;
+    }
+
+    public String getTripDate() {
+        return tripDate;
+    }
+
+    public void setTripDate(String tripDate) {
+        this.tripDate = tripDate;
+    }
+
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+}
 public class HelloServlet extends HttpServlet {
 	private static final String filePath = "getOffers.json";
 
@@ -45,9 +90,10 @@ public class HelloServlet extends HttpServlet {
 			int hotelsCount=HotelArray.size();
 			req.setAttribute("hotelsCount",hotelsCount);
 			
-			List<HotelInfo> list=new ArrayList<HotelInfo>();
-
+			//List<String> list=new ArrayList<String>();
+			HotelInfo hotelInfo[] = new HotelInfo[hotelsCount];
 			Iterator i = HotelArray.iterator();
+			int count=0;
 			while (i.hasNext()) {
 				JSONObject innerObj = (JSONObject) i.next();
 				
@@ -63,19 +109,19 @@ public class HelloServlet extends HttpServlet {
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
-				/* HotelInfo hotelInfo=new HotelInfo();
+				// HotelInfo hotelInfo=new HotelInfo();
 				
-				hotelInfo.setDest(dest);
-				hotelInfo.setTripDate(tripDate);
-				hotelInfo.setRatings(ratings);
-				hotelInfo.setImgPath(imgPath);
-				hotelInfo.setDescription(description);
-				
-				list.add(hotelInfo); */
+				hotelInfo[count].setDest(dest);
+				hotelInfo[count].setTripDate(tripDate);
+				hotelInfo[count].setRatings(ratings);
+				hotelInfo[count].setImgPath(imgPath);
+				hotelInfo[count].setDescription(description);
+				count++;
+				//list.add(hotelInfo); /**/
 						
 				
 			}
-			req.setAttribute("listOfHotels",list);
+			req.setAttribute("listOfHotels",hotelInfo);
 			
 
     } catch (Exception ex) {
