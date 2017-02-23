@@ -124,7 +124,13 @@ class HotelInformation{
 			}
 				
 				for(HotelInformation hotel : list){
-					out.println("<img src='"+hotel.getImgPath()+"' >");
+					out.println(hotel.getDest());
+					out.println(hotel.getTripDate());
+					out.println(hotel.getRatings());
+					out.println(hotel.getImgPath());
+					out.println(hotel.getDescription());
+					
+					out.println("<hr>");
                  
 				}
 
