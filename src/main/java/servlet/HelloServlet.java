@@ -115,7 +115,7 @@ class HotelInformation{
 				info.setDest(dest);
 				info.setTripDate(tripDate);
 				info.setRatings(ratings);
-				linfo.setImgPath(imgPath);
+				info.setImgPath(imgPath);
 				info.setDescription(description);
 				//count++;
 				list.add(info); /**/
