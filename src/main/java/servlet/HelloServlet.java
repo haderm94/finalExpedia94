@@ -121,17 +121,9 @@ class HotelInformation{
 						
 				
 			}
-			out.println("<table><tr><th>Destination</th><th>Trip starts at</th><th>Trip end at</th></tr>");
-				for(Client hotel : listOfClients){
-					out.println("<tr><td>"+hotel.getUsername()+"</td><td>"+hotel.getPassword()+"</td><td>");
-					if(hotel.getApprovedStatus().equals("yes"))
-						 out.println(hotel.getApprovedStatus());
-					else{
-					   
-						 out.println("<form method=\"POST\" action=\"approveName\">Not Yet! <button name=\"approvePar\" type=\"submit\" value=\""+cli.getUsername()+"\">Approve</button>");
-						 session.setAttribute("approveUser", hotel.getUsername());
-						 out.println("</form></td></tr>");
-					}  
+				
+				for(HotelInformation hotel : list){
+					out.println("<img src="+hotel.getImgPath+" >");
                  
 				}
 
