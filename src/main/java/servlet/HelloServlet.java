@@ -78,8 +78,15 @@ class HotelInformation{
             throws ServletException, IOException {
 			
 		PrintWriter out = resp.getWriter();		
-		resp.setContentType("text/plain"); 
+		resp.setContentType("text/html"); 
         resp.setCharacterEncoding("UTF-8");
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<title>Hola</title>");
+		out.println("</head>");
+		out.println("<body bgcolor=\"white\">");
+		out.println("</body>");
+		out.println("</html>");
 		try {
 			FileReader reader = new FileReader(filePath);
 
@@ -91,8 +98,12 @@ class HotelInformation{
 			int hotelsCount=HotelArray.size();
 			req.setAttribute("hotelsCount",hotelsCount);
 			
+			out.println("There is "+hotelsCount+" hotel deal as parsed from JSON API");
+			out.println();
+			out.println();
 			List<HotelInformation> list=new ArrayList<HotelInformation>();
 			Iterator i = HotelArray.iterator();
+			
 			int count=0;
 			while (i.hasNext()) {
 				JSONObject innerObj = (JSONObject) i.next();
@@ -123,13 +134,16 @@ class HotelInformation{
 				
 			}
 				
-				out.println("<html>");
-    out.println("<head>");
-    out.println("<title>Hola</title>");
-    out.println("</head>");
-    out.println("<body bgcolor=\"white\">");
-    out.println("</body>");
-    out.println("</html>");
+				for(HotelInformation hotel : list){
+					out.println(hotel.getDest());
+					out.println(hotel.getTripDate());
+					out.println(hotel.getRatings());
+					out.println(hotel.getImgPath());
+					out.println(hotel.getDescription());
+					
+					out.println();
+                 
+				}
 
     } catch (Exception ex) {
         ex.printStackTrace();
