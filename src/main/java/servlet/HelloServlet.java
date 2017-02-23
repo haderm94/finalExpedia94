@@ -130,6 +130,7 @@ class HotelInformation{
 				String hotelName=hotelInfo.get("hotelName").toString();
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
+				String nightPrice=hotelPricingInfo.get("originalPricePerNight").toString();
 				
 				HotelInformation info=new HotelInformation();
 
@@ -140,6 +141,7 @@ class HotelInformation{
 				info.setImgPath(imgPath);
 				info.setDescription(description);
 				info.setHotelName(hotelName);
+				info.setPrice(nightPrice);
 				list.add(info); /**/
 						
 				
@@ -151,7 +153,8 @@ class HotelInformation{
 					out.println("<p>"+hotel.getDest()+"</p>");
 					out.println("<p>"+hotel.getTripDate()+"</p>");
 					out.println("<p>"+hotel.getRatings()+"</p>");
-					out.println("<p>"+hotel.getDescription()+"</p>");
+					out.println("<p>"+hotel.getDescription()+"</p><br>");
+					out.println("<p>"+hotel.getPrice()+"</p>");
 					
 					out.println("<br><br><hr>");
                  
