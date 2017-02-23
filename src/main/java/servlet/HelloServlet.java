@@ -26,8 +26,14 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet {
 class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description,hotelName;
+    private String dest,tripDate,ratings,imgPath,description,hotelName,price;
 	public HotelInformation(){}
+	public String getPrice() {
+        return price;
+    }
+	public void setPrice(String price) {
+        this.price = price;
+    }
 	public String getHotelName() {
         return hotelName;
     }
