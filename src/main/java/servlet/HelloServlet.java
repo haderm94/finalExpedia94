@@ -78,7 +78,8 @@ class HotelInformation{
             throws ServletException, IOException {
 			
 		PrintWriter out = resp.getWriter();		
-		
+		resp.setContentType("text/plain"); 
+        resp.setCharacterEncoding("UTF-8");
 		try {
 			FileReader reader = new FileReader(filePath);
 
