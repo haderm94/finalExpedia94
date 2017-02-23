@@ -80,7 +80,6 @@ class HotelInformation{
 		PrintWriter out = resp.getWriter();		
 		
 		try {
-			HotelInformation info=new HotelInformation();
 			FileReader reader = new FileReader(filePath);
 
 			JSONParser jsonParser = new JSONParser();
@@ -91,7 +90,7 @@ class HotelInformation{
 			int hotelsCount=HotelArray.size();
 			req.setAttribute("hotelsCount",hotelsCount);
 			
-			//List<String> list=new ArrayList<String>();
+			List<HotelInformation> list=new ArrayList<HotelInformation>();
 			//HotelInfo list[] = new HotelInfo[hotelsCount];
 			Iterator i = HotelArray.iterator();
 			int count=0;
@@ -110,7 +109,8 @@ class HotelInformation{
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
-				// HotelInfo hotelInfo=new HotelInfo();
+				HotelInformation info=new HotelInformation();
+
 				/*
 				list[count].setDest(dest);
 				list[count].setTripDate(tripDate);
