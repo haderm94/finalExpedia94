@@ -123,16 +123,13 @@ class HotelInformation{
 				
 			}
 				
-				for(HotelInformation hotel : list){
-					out.println(hotel.getDest());
-					out.println(hotel.getTripDate());
-					out.println(hotel.getRatings());
-					out.println(hotel.getImgPath());
-					out.println(hotel.getDescription());
-					
-					out.println("<hr>");
-                 
-				}
+				out.println("<html>");
+    out.println("<head>");
+    out.println("<title>Hola</title>");
+    out.println("</head>");
+    out.println("<body bgcolor=\"white\">");
+    out.println("</body>");
+    out.println("</html>");
 
     } catch (Exception ex) {
         ex.printStackTrace();
