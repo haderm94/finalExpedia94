@@ -79,7 +79,7 @@ public class HelloServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();		
 		
 		try {
-			HotelInfo hotelInfo=new HotelInfo();
+			HotelInformation info=new HotelInformation();
 			FileReader reader = new FileReader(filePath);
 
 			JSONParser jsonParser = new JSONParser();
