@@ -121,7 +121,7 @@ class HotelInformation{
 				String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +",   Region ID: " + destination.get("regionID");
 				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ "<br>LengthOfStay " + offerDateRange.get("lengthOfStay");
 				String ratings="hotelStarRating: "+ hotelInfo.get("hotelStarRating")+"<br>"+"hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating");
-				String hotelName=hotelInfo.get("hotelName");
+				String hotelName=hotelInfo.get("hotelName").toString();
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
