@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.File;
 import java.util.*;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import org.json.simple.JSONArray;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
         name = "MyServlet", 
-        urlPatterns = {"/"}
+        urlPatterns = {"/hello"}
     )
 public class HelloServlet extends HttpServlet {
 	private static final String filePath = "getOffers.json";
@@ -38,23 +39,15 @@ public class HelloServlet extends HttpServlet {
 
 			JSONParser jsonParser = new JSONParser();
 			JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);	
-			
-			JSONObject offerInfo = (JSONObject)jsonObject.get("offerInfo");
-			String SiteId=(String)offerInfo.get("siteID");
-			req.setAttribute("id",SiteId);
-			out.println("The SiteId is: " +SiteId );
-			out.println("h1");
-			
+								
 			JSONObject offers = (JSONObject)jsonObject.get("offers");
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
+			int hotelsCount=HotelArray.size();
+			req.setAttribute("hotelsCount",hotelsCount);
 			
-			// take the elements of the json array
-			/* for(int i=0; i<HotelArray.size(); i++){
-				out.println("The " + i + " element of the array: "+HotelArray.get(i));
-			} */
-			Iterator i = HotelArray.iterator();
+			List<HotelInfo> list=new ArrayList<>();
 
-			// take each value from the json array separately
+			Iterator i = HotelArray.iterator();
 			while (i.hasNext()) {
 				JSONObject innerObj = (JSONObject) i.next();
 				
@@ -64,50 +57,33 @@ public class HelloServlet extends HttpServlet {
 				JSONObject hotelPricingInfo = (JSONObject)innerObj.get("hotelPricingInfo");
 				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls");
 				
-				out.println("Destination: "+ destination.get("country") + "-"+ destination.get("city") +
-						", Region ID: " + destination.get("regionID"));
+				String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +", Region ID: " + destination.get("regionID");
+				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ ". LengthOfStay " + offerDateRange.get("lengthOfStay");
+				String ratings="hotelStarRating: "+ hotelInfo.get("hotelStarRating")+"\n"+"hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating");
+				String imgPath=hotelInfo.get("hotelImageUrl");
+				String description=hotelInfo.get("description");
 				
-				out.println("Trip starts at: "+ hotelInfo.get("travelStartDate") + 
-						" To " + hotelInfo.get("travelEndDate")+ ". LengthOfStay " + offerDateRange.get("lengthOfStay"));
+				HotelInfo hotelInfo=new HotelInfo();
+				
+				hotelInfo.setDest(dest);
+				hotelInfo.setTripDate(tripDate);
+				hotelInfo.setRatings(ratings);
+				hotelInfo.setImgPath(imgPath);
+				hotelInfo.setDescription(description);
+				
+				list.add(hotelInfo);
 						
-				out.println("hotelStarRating: "+ hotelInfo.get("hotelStarRating") ); 
-				out.println(" hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating"));
-				out.println();
+				
 			}
-			/* // get a number from the JSON object
-			long id =  (long) jsonObject.get("id");
-			System.out.println("The id is: " + id);
-
-			// get an array from the JSON object
-			JSONArray lang= (JSONArray) jsonObject.get("languages");
-			
-			// take the elements of the json array
-			for(int i=0; i<lang.size(); i++){
-				System.out.println("The " + i + " element of the array: "+lang.get(i));
-			}
-			Iterator i = lang.iterator();
-
-			// take each value from the json array separately
-			while (i.hasNext()) {
-				JSONObject innerObj = (JSONObject) i.next();
-				System.out.println("language "+ innerObj.get("lang") + 
-						" with level " + innerObj.get("knowledge"));
-			}
-			// handle a structure into the json object
-			JSONObject structure = (JSONObject) jsonObject.get("job");
-			System.out.println("Into job structure, name: " + structure.get("name"));
-			 */
+			req.setAttribute("listOfHotels",list);
 			
 
     } catch (Exception ex) {
         ex.printStackTrace();
     }
 	
-	out.println("h2");
 
-       
-        
-		//RequestDispatcher dd=req.getRequestDispatcher("index.jsp");
+		//RequestDispatcher dd=req.getRequestDispatcher("deals.jsp");
 		//dd.forward(req, resp);
 		//out.close();
 		out.println("h3");//
