@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.util.*;
 import java.util.List;
-
+import HotelInfo.*;
 import javax.servlet.RequestDispatcher;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -60,8 +60,8 @@ public class HelloServlet extends HttpServlet {
 				String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +", Region ID: " + destination.get("regionID");
 				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ ". LengthOfStay " + offerDateRange.get("lengthOfStay");
 				String ratings="hotelStarRating: "+ hotelInfo.get("hotelStarRating")+"\n"+"hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating");
-				String imgPath=hotelInfo.get("hotelImageUrl");
-				String description=hotelInfo.get("description");
+				String imgPath=hotelInfo.get("hotelImageUrl").toString();
+				String description=hotelInfo.get("description").toString();
 				
 				HotelInfo hotelInfo=new HotelInfo();
 				
