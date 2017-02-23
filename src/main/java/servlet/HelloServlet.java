@@ -25,7 +25,52 @@ import javax.servlet.http.HttpServletResponse;
     )
 
 public class HelloServlet extends HttpServlet {
+class HotelInformation{
+    private String dest,tripDate,ratings,imgPath,description;
+	public HotelInformation(){}
+	
+    public String getDest() {
+        return dest;
+    }
 
+    public void setDest(String dest) {
+        this.dest = dest;
+    }
+
+    public String getTripDate() {
+        return tripDate;
+    }
+
+    public void setTripDate(String tripDate) {
+        this.tripDate = tripDate;
+    }
+
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+}
 	private static final String filePath = "getOffers.json";
 
     @Override
@@ -43,7 +88,9 @@ public class HelloServlet extends HttpServlet {
 			JSONObject offers = (JSONObject)jsonObject.get("offers");
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
 			int hotelsCount=HotelArray.size();
+			req.setAttribute("hotelsCount",hotelsCount);
 			
+			List<HotelInformation> list=new ArrayList<HotelInformation>();
 			Iterator i = HotelArray.iterator();
 			int count=0;
 			while (i.hasNext()) {
@@ -61,20 +108,42 @@ public class HelloServlet extends HttpServlet {
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
-		
+				HotelInformation info=new HotelInformation();
+
+				
+				info.setDest(dest);
+				info.setTripDate(tripDate);
+				info.setRatings(ratings);
+				info.setImgPath(imgPath);
+				info.setDescription(description);
+				
+				list.add(info); /**/
 						
 				
 			}
-			
+			out.println("<table><tr><th>Destination</th><th>Trip starts at</th><th>Trip end at</th></tr>");
+				for(Client hotel : listOfClients){
+					out.println("<tr><td>"+hotel.getUsername()+"</td><td>"+hotel.getPassword()+"</td><td>");
+					if(hotel.getApprovedStatus().equals("yes"))
+						 out.println(hotel.getApprovedStatus());
+					else{
+					   
+						 out.println("<form method=\"POST\" action=\"approveName\">Not Yet! <button name=\"approvePar\" type=\"submit\" value=\""+cli.getUsername()+"\">Approve</button>");
+						 session.setAttribute("approveUser", hotel.getUsername());
+						 out.println("</form></td></tr>");
+					}  
+                 
+				}
 
     } catch (Exception ex) {
         ex.printStackTrace();
     }
 	
 
+	
+		
 		out.println("h3");
 		out.close();
-		
 		return;
     }
 	}
