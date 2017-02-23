@@ -26,17 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet {
 class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description,hotelName,nightPrice;
+    private String dest,tripDate,ratings,imgPath,description,hotelName;
 	public HotelInformation(){}
-	
-	public String getNightPrice() {
-        return nightPrice;
-    }
-
-    public void setNightPrice(String nightPrice) {
-        this.nightPrice = nightPrice;
-    }
-	
 	public String getHotelName() {
         return hotelName;
     }
@@ -133,18 +124,16 @@ class HotelInformation{
 				String hotelName=hotelInfo.get("hotelName").toString();
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
-				String pricePerNight=hotelInfo.get("averagePriceValue").toString();
 				
 				HotelInformation info=new HotelInformation();
 
+				
 				info.setDest(dest);
 				info.setTripDate(tripDate);
 				info.setRatings(ratings);
 				info.setImgPath(imgPath);
 				info.setDescription(description);
 				info.setHotelName(hotelName);
-				info.setNightPrice(pricePerNight);
-				
 				list.add(info); /**/
 						
 				
@@ -157,7 +146,7 @@ class HotelInformation{
 					out.println("<p>"+hotel.getTripDate()+"</p>");
 					out.println("<p>"+hotel.getRatings()+"</p>");
 					out.println("<p>"+hotel.getDescription()+"</p>");
-					out.println("<p>One night stay price at: "+hotel.getNightPrice()+"</p>");
+					
 					out.println("<br><br><hr>");
                  
 				}
