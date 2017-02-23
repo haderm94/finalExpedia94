@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.io.File;
 import java.util.*;
 
-
+import javax.servlet.RequestDispatcher;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -41,6 +41,7 @@ public class HelloServlet extends HttpServlet {
 			
 			JSONObject offerInfo = (JSONObject)jsonObject.get("offerInfo");
 			String SiteId=(String)offerInfo.get("siteID");
+			req.setAttribute("id",SiteId);
 			out.println("The SiteId is: " +SiteId );
 			out.println("h1");
 			
@@ -106,7 +107,9 @@ public class HelloServlet extends HttpServlet {
 
        
         out.close();
+		RequestDispatcher reqDispatcher=req.getRequestDispatcher("index.jsp");//forward the same req
+        reqDispatcher.forward(req, resp);
     }
-	
+	}
     
 }
