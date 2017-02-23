@@ -26,8 +26,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet {
 class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description,hotelName;
+    private String dest,tripDate,ratings,imgPath,description,hotelName,nightPrice;
 	public HotelInformation(){}
+	public String getNightPrice() {
+        return nightPrice;
+    }
+
+    public void setNightPrice(String nightPrice) {
+        this.nightPrice = nightPrice;
+    }
 	public String getHotelName() {
         return hotelName;
     }
@@ -119,21 +126,23 @@ class HotelInformation{
 				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls");
 				
 				String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +",   Region ID: " + destination.get("regionID");
-				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ "<br>LengthOfStay " + offerDateRange.get("lengthOfStay");
-				String ratings="hotelStarRating: "+ hotelInfo.get("hotelStarRating")+"<br>"+"hotelGuestReviewRating " + hotelInfo.get("hotelGuestReviewRating");
+				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ "<br>Length of Stay " + offerDateRange.get("lengthOfStay");
+				String ratings="hotel Star Rating: "+ hotelInfo.get("hotelStarRating")+"<br>"+"hotel Guest Review Rating: " + hotelInfo.get("hotelGuestReviewRating");
 				String hotelName=hotelInfo.get("hotelName").toString();
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
+				String originalPricePerNight=hotelInfo.get("originalPricePerNight").toString();
 				
 				HotelInformation info=new HotelInformation();
 
-				
 				info.setDest(dest);
 				info.setTripDate(tripDate);
 				info.setRatings(ratings);
 				info.setImgPath(imgPath);
 				info.setDescription(description);
 				info.setHotelName(hotelName);
+				info.setNightPrice(originalPricePerNight);
+				
 				list.add(info); /**/
 						
 				
@@ -146,7 +155,7 @@ class HotelInformation{
 					out.println("<p>"+hotel.getTripDate()+"</p>");
 					out.println("<p>"+hotel.getRatings()+"</p>");
 					out.println("<p>"+hotel.getDescription()+"</p>");
-					
+					out.println("<p>One night stay price at: "+hotel.getNightPrice()+"</p>");
 					out.println("<br><br><hr>");
                  
 				}
