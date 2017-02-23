@@ -28,6 +28,7 @@ public class HelloServlet extends HttpServlet {
 class HotelInformation{
     private String dest,tripDate,ratings,imgPath,description,hotelName,nightPrice;
 	public HotelInformation(){}
+	
 	public String getNightPrice() {
         return nightPrice;
     }
@@ -35,6 +36,7 @@ class HotelInformation{
     public void setNightPrice(String nightPrice) {
         this.nightPrice = nightPrice;
     }
+	
 	public String getHotelName() {
         return hotelName;
     }
@@ -131,7 +133,7 @@ class HotelInformation{
 				String hotelName=hotelInfo.get("hotelName").toString();
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
-				String originalPricePerNight=hotelInfo.get("originalPricePerNight").toString();
+				String originalPricePerNight=hotelInfo.get("averagePriceValue").toString();
 				
 				HotelInformation info=new HotelInformation();
 
