@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(
         name = "MyServlet", 
-        urlPatterns = {"/hello"}
+        urlPatterns = {"/"}
     )
 public class HelloServlet extends HttpServlet {
 	private static final String filePath = "getOffers.json";
@@ -107,9 +107,9 @@ public class HelloServlet extends HttpServlet {
 
        
         
-		RequestDispatcher dd=req.getRequestDispatcher("index.jsp");
-		dd.forward(req, resp);
-		out.close();
+		//RequestDispatcher dd=req.getRequestDispatcher("index.jsp");
+		//dd.forward(req, resp);
+		//out.close();
 		out.println("h3");//
 		return;
     }
