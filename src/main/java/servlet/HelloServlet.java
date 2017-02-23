@@ -106,10 +106,9 @@ public class HelloServlet extends HttpServlet {
 	out.println("h2");
 
        
-        //out.close();
+        out.close();
 		RequestDispatcher dd=req.getRequestDispatcher("index.jsp");
 		dd.forward(req, resp);
-		//resp.sendRedirect("index.jsp");
 		out.println("h3");
 		return;
     }
