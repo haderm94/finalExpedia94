@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <title>Deals</title>
@@ -11,9 +10,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-sidenav a {padding:20px}
 </style>
 <body>
-<c:forEach items="${listOfHotels}" var="item">
-	<c:out value="${item.getDescription()}" />
-</c:forEach>
+<% (((Object)request.getAttribute("listOfHotels")).get(0).getDescription())%>
 <!-- Sidenav (hidden by default) -->
 <nav class="w3-sidenav w3-card-2 w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidenav">
   <a href="javascript:void(0)" onclick="w3_close()"
