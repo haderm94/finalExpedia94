@@ -23,7 +23,52 @@ import javax.servlet.http.HttpServletResponse;
         name = "MyServlet", 
         urlPatterns = {"/hello"}
     )
+class HotelInformation{
+    private String dest,tripDate,ratings,imgPath,description;
+	public HotelInformation(){}
+	
+    public String getDest() {
+        return dest;
+    }
 
+    public void setDest(String dest) {
+        this.dest = dest;
+    }
+
+    public String getTripDate() {
+        return tripDate;
+    }
+
+    public void setTripDate(String tripDate) {
+        this.tripDate = tripDate;
+    }
+
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+}
 public class HelloServlet extends HttpServlet {
 	private static final String filePath = "getOffers.json";
 
@@ -34,7 +79,7 @@ public class HelloServlet extends HttpServlet {
 		PrintWriter out = resp.getWriter();		
 		
 		try {
-			
+			HotelInfo hotelInfo=new HotelInfo();
 			FileReader reader = new FileReader(filePath);
 
 			JSONParser jsonParser = new JSONParser();
@@ -64,7 +109,7 @@ public class HelloServlet extends HttpServlet {
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
-				 HotelInfo hotelInfo=new HotelInfo();
+				// HotelInfo hotelInfo=new HotelInfo();
 				/*
 				list[count].setDest(dest);
 				list[count].setTripDate(tripDate);
@@ -76,7 +121,7 @@ public class HelloServlet extends HttpServlet {
 						
 				
 			}
-			//req.setAttribute("listOfHotels",list);
+			//req.setAttribute("listOfHotels",hotelInfo);
 			
 
     } catch (Exception ex) {
@@ -84,8 +129,8 @@ public class HelloServlet extends HttpServlet {
     }
 	
 
-		RequestDispatcher dd=req.getRequestDispatcher("deals.jsp");
-		dd.forward(req, resp);
+		//RequestDispatcher dd=req.getRequestDispatcher("deals.jsp");
+		//dd.forward(req, resp);
 		//out.close();
 		out.println("h3");//
 		return;
