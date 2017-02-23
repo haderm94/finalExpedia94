@@ -82,11 +82,10 @@ class HotelInformation{
         resp.setCharacterEncoding("UTF-8");
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Hola</title>");
+		out.println("<title>Exp94</title>");
 		out.println("</head>");
-		out.println("<body bgcolor=\"white\">");
-		out.println("</body>");
-		out.println("</html>");
+		out.println("<body>");
+	
 		try {
 			FileReader reader = new FileReader(filePath);
 
@@ -96,11 +95,10 @@ class HotelInformation{
 			JSONObject offers = (JSONObject)jsonObject.get("offers");
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
 			int hotelsCount=HotelArray.size();
-			req.setAttribute("hotelsCount",hotelsCount);
 			
-			out.println("There is "+hotelsCount+" hotel deal as parsed from JSON API");
-			out.println();
-			out.println();
+			out.println("<p>There is "+hotelsCount+" hotel deal as parsed from JSON API</p>");
+			out.println("<br><br><hr>");
+			
 			List<HotelInformation> list=new ArrayList<HotelInformation>();
 			Iterator i = HotelArray.iterator();
 			
@@ -135,13 +133,13 @@ class HotelInformation{
 			}
 				
 				for(HotelInformation hotel : list){
-					out.println(hotel.getDest());
-					out.println(hotel.getTripDate());
-					out.println(hotel.getRatings());
-					out.println(hotel.getImgPath());
-					out.println(hotel.getDescription());
+					out.println("<p>"+hotel.getDest()+"</p>");
+					out.println("<p>"+hotel.getTripDate()+"</p>");
+					out.println("<p>"+hotel.getRatings()+"</p>");
+					out.println("<p>"+hotel.getImgPath()+"</p>");
+					out.println("<p>"+hotel.getDescription()+"</p>");
 					
-					out.println();
+					out.println("<br><br><hr>");
                  
 				}
 
@@ -150,7 +148,8 @@ class HotelInformation{
     }
 	
 
-		out.println("h3");
+		out.println("</body>");
+		out.println("</html>");
 		out.close();
 		return;
     }
