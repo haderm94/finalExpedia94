@@ -1,5 +1,53 @@
 <%@page import="java.util.*"%>
 <!DOCTYPE html>
+<%!
+public static class HotelInformation{
+    private String dest,tripDate,ratings,imgPath,description;
+	public HotelInformation(){}
+	
+    public String getDest() {
+        return dest;
+    }
+
+    public void setDest(String dest) {
+        this.dest = dest;
+    }
+
+    public String getTripDate() {
+        return tripDate;
+    }
+
+    public void setTripDate(String tripDate) {
+        this.tripDate = tripDate;
+    }
+
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
+    }
+
+    public String getImgPath() {
+        return imgPath;
+    }
+
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+}
+%>
 <html>
 <title>Deals</title>
 <meta charset="UTF-8">
@@ -11,7 +59,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-sidenav a {padding:20px}
 </style>
 <body>
-<%=(String)((request.getAttribute("listOfHotels")).get(0).getDescription())%>
+<%=(String)((((List<HotelInformation>)request.getAttribute("listOfHotels")).get(0)).getDescription())%>
 <!-- Sidenav (hidden by default) -->
 <nav class="w3-sidenav w3-card-2 w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidenav">
   <a href="javascript:void(0)" onclick="w3_close()"
