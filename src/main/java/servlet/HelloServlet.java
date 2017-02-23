@@ -154,7 +154,7 @@ class HotelInformation{
 					out.println("<p>"+hotel.getTripDate()+"</p>");
 					out.println("<p>"+hotel.getRatings()+"</p>");
 					out.println("<p>"+hotel.getDescription()+"</p><br>");
-					out.println("<p>"+hotel.getPrice()+"</p>");
+					out.println("<p> Price per night: "+hotel.getPrice()+" US</p>");
 					
 					out.println("<br><br><hr>");
                  
