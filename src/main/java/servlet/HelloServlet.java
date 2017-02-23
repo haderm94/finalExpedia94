@@ -107,7 +107,7 @@ public class HelloServlet extends HttpServlet {
 
        
         out.close();
-		response.sendRedirect("index.jsp");
+		resp.sendRedirect("index.jsp");
 		return;
     }
 	}
