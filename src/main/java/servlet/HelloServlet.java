@@ -108,8 +108,8 @@ public class HelloServlet extends HttpServlet {
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				
-				/* HotelInfo hotelInfo=new HotelInfo();
-				
+				 HotelInfo hotelInfo=new HotelInfo();
+				/*
 				hotelInfo.setDest(dest);
 				hotelInfo.setTripDate(tripDate);
 				hotelInfo.setRatings(ratings);
