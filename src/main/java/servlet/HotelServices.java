@@ -51,10 +51,8 @@ public class HotelServices  {
 	public List<HotelInformation> allHotels(JSONArray HotelArray ) throws IOException, ParseException {
 	
 		List<HotelInformation> list=new ArrayList<HotelInformation>();
-		Iterator i = HotelArray.iterator();
 		
-		while (i.hasNext()) {
-			JSONObject innerObj = (JSONObject) i.next();
+		for (JSONObject innerObj : HotelArray){
 			
 			JSONObject offerDateRange = (JSONObject)innerObj.get("offerDateRange");
 			JSONObject destination = (JSONObject)innerObj.get("destination");
