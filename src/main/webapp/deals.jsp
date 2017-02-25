@@ -1,6 +1,6 @@
-<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <title>Deals</title>
 <meta charset="UTF-8">

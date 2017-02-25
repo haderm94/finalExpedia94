@@ -27,27 +27,13 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet {
 
-	
-	public JSONObject readJsonFromUrl(String url) throws IOException, ParseException {
-		InputStream is = new URL(url).openStream();
-		try {
-		  BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-		  JSONParser jsonParser = new JSONParser();
-		  JSONObject json = (JSONObject) jsonParser.parse(rd);	
-		
-		  return json;
-		} finally {
-		  is.close();
-		}
-	}
-
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 		
 		HotelServices hotelServices=new HotelServices();//instance of the service class to do all processing
 		PrintWriter out = resp.getWriter();		
+		
 		resp.setContentType("text/html"); 
         resp.setCharacterEncoding("UTF-8");
 		out.println("<html>");
@@ -58,7 +44,7 @@ public class HelloServlet extends HttpServlet {
 	
 		try {
 				
-			JSONObject jsonObject=readJsonFromUrl("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel");				
+			JSONObject jsonObject=hotelServices.readJsonFromUrl("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel");				
 			JSONObject offers = (JSONObject)jsonObject.get("offers");
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
 			int hotelsCount=HotelArray.size();
@@ -66,41 +52,7 @@ public class HelloServlet extends HttpServlet {
 			out.println("<p>There is "+hotelsCount+" hotel deal as parsed from JSON API</p>");
 			out.println("<br><br><hr>");
 			
-			List<HotelInformation> list=new ArrayList<HotelInformation>();
-			Iterator i = HotelArray.iterator();
-			
-			int count=0;
-			while (i.hasNext()) {
-				JSONObject innerObj = (JSONObject) i.next();
-				
-				JSONObject offerDateRange = (JSONObject)innerObj.get("offerDateRange");
-				JSONObject destination = (JSONObject)innerObj.get("destination");
-				JSONObject hotelInfo = (JSONObject)innerObj.get("hotelInfo");
-				JSONObject hotelPricingInfo = (JSONObject)innerObj.get("hotelPricingInfo");
-				JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls");
-				
-				String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +",   Region ID: " + destination.get("regionID");
-				String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ "<br>Length of Stay " + offerDateRange.get("lengthOfStay");
-				String ratings="hotel Star Rating: "+ hotelInfo.get("hotelStarRating")+"<br>"+"hotel Guest Review Rating: " + hotelInfo.get("hotelGuestReviewRating");
-				String hotelName=hotelInfo.get("hotelName").toString();
-				String imgPath=hotelInfo.get("hotelImageUrl").toString();
-				String description=hotelInfo.get("description").toString();
-				String nightPrice=hotelPricingInfo.get("originalPricePerNight").toString();
-
-				HotelInformation info=new HotelInformation();
-				
-				
-				info.setDest(dest);
-				info.setTripDate(tripDate);
-				info.setRatings(ratings);
-				info.setImgPath(imgPath);
-				info.setDescription(description);
-				info.setHotelName(hotelName);
-				info.setPrice(nightPrice);
-				list.add(info); /**/
-						
-				
-			}
+			List<HotelInformation> list=hotelServices.allHotels(HotelArray);
 				
 				for(HotelInformation hotel : list){
 					out.println("<h3>"+hotel.getHotelName()+"</h3>");
