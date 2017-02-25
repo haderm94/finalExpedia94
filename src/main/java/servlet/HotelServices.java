@@ -52,7 +52,7 @@ public class HotelServices  {
 	
 		List<HotelInformation> list=new ArrayList<HotelInformation>();
 		//Iterator i = HotelArray.iterator();
-		for (int i=0; i < HotelArray.length(); i++) {
+		for (int i=0; i < HotelArray.size(); i++) {
 			JSONObject innerOnj=HotelArray.getJSONObject(i);
 
 			
