@@ -17,7 +17,27 @@
         <artifactId>tomcat-embed-core</artifactId>
         <version>${tomcat.version}</version>
     </dependency>
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>servlet-api</artifactId>
+  <version>2.5</version>
+</dependency>
+<dependency>
+  <groupId>javax.servlet.jsp</groupId>
+  <artifactId>jsp-api</artifactId>
+  <version>2.1</version>
+</dependency>
 
+<dependency>
+  <groupId>taglibs</groupId>
+  <artifactId>standard</artifactId>
+  <version>1.1.2</version>
+</dependency>
+<dependency>
+  <groupId>javax.servlet</groupId>
+  <artifactId>jstl</artifactId>
+  <version>1.2</version>
+</dependency>
 <dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>jstl</artifactId>
@@ -33,12 +53,7 @@
         <artifactId>tomcat-embed-logging-juli</artifactId>
         <version>${tomcat.version}</version>
     </dependency>
-	
-<dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20140107</version>
-</dependency>
+
 <dependency>
     <groupId>com.googlecode.json-simple</groupId>
     <artifactId>json-simple</artifactId>
