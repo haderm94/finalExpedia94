@@ -12,6 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -92,12 +93,14 @@ class HotelInformation{
 		return sb.toString();
 	}
 
-	public JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
+	public JSONObject readJsonFromUrl(String url) throws IOException, ParseException {
 		InputStream is = new URL(url).openStream();
 		try {
 		  BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-		  String jsonText = readAll(rd);
-		  JSONObject json = new JSONObject(jsonText);
+		  //String jsonText = readAll(rd);
+		  JSONParser jsonParser = new JSONParser();
+		  JSONObject json = (JSONObject) jsonParser.parse(rd);	
+		  //JSONObject json = new JSONObject(jsonText);
 		  return json;
 		} finally {
 		  is.close();
