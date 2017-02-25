@@ -10,6 +10,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <tomcat.version>8.0.28</tomcat.version>
+	 <dropwizard.version>1.0.6</dropwizard.version>
   </properties>
   <dependencies>
     <dependency>
@@ -30,6 +31,19 @@
         <scope>runtime</scope>
         <version>1.1.1</version>
     </dependency>
+<!-- https://mvnrepository.com/artifact/io.dropwizard/dropwizard-core -->
+<dependency>
+    <groupId>io.dropwizard</groupId>
+    <artifactId>dropwizard-core</artifactId>
+    <version>${dropwizard.version}</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.yammer.dropwizard/dropwizard-core -->
+<dependency>
+    <groupId>com.yammer.dropwizard</groupId>
+    <artifactId>dropwizard-core</artifactId>
+    <version>0.6.2</version>
+</dependency>
+
     <dependency>
         <groupId>taglibs</groupId>
         <artifactId>c</artifactId>
