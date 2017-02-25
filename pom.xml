@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <tomcat.version>7.0.50</tomcat.version>
+    <tomcat.version>8.0.28</tomcat.version>
   </properties>
   <dependencies>
     <dependency>
@@ -19,11 +19,11 @@
     </dependency>
 
 
-	<dependency>
-	  <groupId>taglibs</groupId>
-	  <artifactId>standard</artifactId>
-	  <version>1.1.2</version>
-	</dependency>
+<dependency>
+  <groupId>taglibs</groupId>
+  <artifactId>standard</artifactId>
+  <version>1.1.2</version>
+</dependency>
 <dependency>
         <groupId>taglibs</groupId>
         <artifactId>standard</artifactId>
@@ -32,13 +32,6 @@
     </dependency>
 <!-- https://mvnrepository.com/artifact/io.dropwizard/dropwizard-core -->
 
-	
-	<!-- https://mvnrepository.com/artifact/jstl/jstl -->
-	<dependency>
-		<groupId>jstl</groupId>
-		<artifactId>jstl</artifactId>
-		<version>1.2</version>
-	</dependency>
 
     <dependency>
         <groupId>taglibs</groupId>
@@ -47,7 +40,13 @@
         <scope>runtime</scope>
         <type>tld</type>
     </dependency>
-    
+    <dependency>
+        <groupId>taglibs</groupId>
+        <artifactId>fmt</artifactId>
+        <version>1.1.1</version>
+        <scope>runtime</scope>
+        <type>tld</type>
+    </dependency>
 
 <dependency>
     <groupId>javax.servlet</groupId>
@@ -55,7 +54,12 @@
     <version>1.2</version>
 	<scope>runtime</scope>
 </dependency>
-
+<dependency>
+    <groupId>jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+	
+</dependency>
     <dependency>
         <groupId>org.apache.tomcat.embed</groupId>
         <artifactId>tomcat-embed-logging-juli</artifactId>
@@ -87,57 +91,6 @@
         <artifactId>tomcat-jsp-api</artifactId>
         <version>${tomcat.version}</version>
     </dependency>
-	<dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-util</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
-		  <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-coyote</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
-		  <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-api</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
-		  <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-servlet-api</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
-		  <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jsp-api</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
-		  <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-el-api</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
-		<!-- https://mvnrepository.com/artifact/tomcat/catalina -->
-		<dependency>
-			<groupId>tomcat</groupId>
-			<artifactId>catalina</artifactId>
-			<version>5.5.23</version>
-		</dependency>
-
-
-          <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-tribes</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
-
-        
-
-          <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-annotations-api</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
   </dependencies>
   <build>
     <finalName>embeddedTomcatSample</finalName>
