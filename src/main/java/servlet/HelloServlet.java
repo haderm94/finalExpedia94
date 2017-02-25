@@ -1,8 +1,8 @@
 package servlet;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.net.URL;
+import java.nio.charset.Charset;
+
 import java.io.File;
 import java.util.*;
 import java.util.List;
@@ -83,6 +83,27 @@ class HotelInformation{
 
 
 }
+	private String readAll(Reader rd) throws IOException {
+		StringBuilder sb = new StringBuilder();
+		int cp;
+		while ((cp = rd.read()) != -1) {
+		  sb.append((char) cp);
+		}
+		return sb.toString();
+	}
+
+	public JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
+		InputStream is = new URL(url).openStream();
+		try {
+		  BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
+		  String jsonText = readAll(rd);
+		  JSONObject json = new JSONObject(jsonText);
+		  return json;
+		} finally {
+		  is.close();
+		}
+	}
+
 	private static final String filePath = "getOffers.json";
 
     @Override
@@ -99,11 +120,11 @@ class HotelInformation{
 		out.println("<body>");
 	
 		try {
-			FileReader reader = new FileReader(filePath);
+			//FileReader reader = new FileReader(filePath);
 
-			JSONParser jsonParser = new JSONParser();
-			JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);	
-								
+			//JSONParser jsonParser = new JSONParser();
+			//JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);	
+			JSONObject jsonObject=readJsonFromUrl("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel");				
 			JSONObject offers = (JSONObject)jsonObject.get("offers");
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
 			int hotelsCount=HotelArray.size();
