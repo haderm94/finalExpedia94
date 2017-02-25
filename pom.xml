@@ -19,12 +19,7 @@
     </dependency>
 
 
-<dependency>
-   <groupId>javax.servlet.jsp</groupId>
-   <artifactId>jsp-api</artifactId>
-   <version>2.1</version>
-   <scope>compile</scope>
-</dependency>
+
 <dependency>
   <groupId>taglibs</groupId>
   <artifactId>standard</artifactId>
