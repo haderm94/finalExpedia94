@@ -26,64 +26,7 @@ import javax.servlet.http.HttpServletResponse;
     )
 
 public class HelloServlet extends HttpServlet {
-class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description,hotelName,price;
-	public HotelInformation(){}
-	public String getPrice() {
-        return price;
-    }
-	public void setPrice(String price) {
-        this.price = price;
-    }
-	public String getHotelName() {
-        return hotelName;
-    }
 
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
-    }
-    public String getDest() {
-        return dest;
-    }
-
-    public void setDest(String dest) {
-        this.dest = dest;
-    }
-
-    public String getTripDate() {
-        return tripDate;
-    }
-
-    public void setTripDate(String tripDate) {
-        this.tripDate = tripDate;
-    }
-
-    public String getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(String ratings) {
-        this.ratings = ratings;
-    }
-
-    public String getImgPath() {
-        return imgPath;
-    }
-
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-}
 	
 	public JSONObject readJsonFromUrl(String url) throws IOException, ParseException {
 		InputStream is = new URL(url).openStream();
@@ -143,7 +86,7 @@ class HotelInformation{
 				String imgPath=hotelInfo.get("hotelImageUrl").toString();
 				String description=hotelInfo.get("description").toString();
 				String nightPrice=hotelPricingInfo.get("originalPricePerNight").toString();
-				
+
 				HotelInformation info=new HotelInformation();
 				
 				
@@ -182,6 +125,6 @@ class HotelInformation{
 		out.close();
 		return;
     }
-	}
+}
     
 
