@@ -117,11 +117,13 @@
             <artifactId>tomcat-el-api</artifactId>
             <version>${tomcat.version}</version>
           </dependency>
-		  <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-catalina</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
+		<!-- https://mvnrepository.com/artifact/tomcat/catalina -->
+		<dependency>
+			<groupId>tomcat</groupId>
+			<artifactId>catalina</artifactId>
+			<version>5.5.23</version>
+		</dependency>
+
 
           <dependency>
             <groupId>org.apache.tomcat</groupId>
@@ -129,11 +131,7 @@
             <version>${tomcat.version}</version>
           </dependency>
 
-          <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-catalina-ha</artifactId>
-            <version>${tomcat.version}</version>
-          </dependency>
+        
 
           <dependency>
             <groupId>org.apache.tomcat</groupId>
