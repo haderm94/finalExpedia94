@@ -52,10 +52,9 @@ public class HotelServices  {
 	
 		List<HotelInformation> list=new ArrayList<HotelInformation>();
 		//Iterator i = HotelArray.iterator();
-		for (int i=0; i < HotelArray.size(); i++) {
-			JSONObject innerOnj=HotelArray.getJSONObject(i);
+		HotelArray.forEach(item -> {
+			JSONObject innerOnj=(JSONObject)item;
 
-			
 			JSONObject offerDateRange = (JSONObject)innerObj.get("offerDateRange");
 			JSONObject destination = (JSONObject)innerObj.get("destination");
 			JSONObject hotelInfo = (JSONObject)innerObj.get("hotelInfo");
@@ -82,7 +81,7 @@ public class HotelServices  {
 			list.add(info); /**/
 			
 	
-		}
+		});
 		return list;
 	}
 	public void display(PrintWriter out,int hotelsCount,List<HotelInformation> list){
