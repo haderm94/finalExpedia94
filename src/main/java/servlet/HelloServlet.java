@@ -41,12 +41,12 @@ public class HelloServlet extends HttpServlet {
 		}
 	}
 
-	private static final String filePath = "getOffers.json";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-			
+		
+		HotelServices hotelServices=new HotelServices();//instance of the service class to do all processing
 		PrintWriter out = resp.getWriter();		
 		resp.setContentType("text/html"); 
         resp.setCharacterEncoding("UTF-8");
