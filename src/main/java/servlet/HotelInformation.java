@@ -1,3 +1,7 @@
+/**
+ * @author mohammad.k.hader on 2/24/2016.
+ * The class (model) that contains the attributes for JSON API 
+ */
 package servlet;
 
 
