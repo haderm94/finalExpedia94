@@ -52,8 +52,8 @@ public class HotelServices  {
 	
 		List<HotelInformation> list=new ArrayList<HotelInformation>();
 		//Iterator i = HotelArray.iterator();
-		for (JSONObject innerObj : HotelArray){
-			innerObj = (JSONObject) innerObj;
+		for (Object innerObj : HotelArray){
+			if (innerObj instanceof JSONObject){
 			
 			JSONObject offerDateRange = (JSONObject)innerObj.get("offerDateRange");
 			JSONObject destination = (JSONObject)innerObj.get("destination");
@@ -79,6 +79,7 @@ public class HotelServices  {
 			info.setHotelName(hotelName);
 			info.setPrice(nightPrice);
 			list.add(info); /**/
+			}
 	
 		}
 		return list;
