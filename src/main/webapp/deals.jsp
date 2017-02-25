@@ -19,7 +19,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <a href="#food" onclick="w3_close()">Food</a>
   <a href="#about" onclick="w3_close()">About</a>
 </nav>
-<c:out value="${size}"/>
+<c:out value="${'<tag> , &'}"/>
 <!-- Top menu -->
 <div class="w3-top">
   <div class="w3-white w3-xlarge w3-padding-xlarge" style="max-width:1200px;margin:auto">
