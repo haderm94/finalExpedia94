@@ -132,7 +132,7 @@ class HotelInformation{
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
 			int hotelsCount=HotelArray.size();
 			
-			out.println("<p>There is "+hotelsCount+" hotel deal as parsed from JSON API</p>");
+			out.println("<p>fuckkkkkkkkThere is "+hotelsCount+" hotel deal as parsed from JSON API</p>");
 			out.println("<br><br><hr>");
 			
 			List<HotelInformation> list=new ArrayList<HotelInformation>();
