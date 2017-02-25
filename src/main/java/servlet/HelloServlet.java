@@ -84,23 +84,14 @@ class HotelInformation{
 
 
 }
-	private String readAll(Reader rd) throws IOException {
-		StringBuilder sb = new StringBuilder();
-		int cp;
-		while ((cp = rd.read()) != -1) {
-		  sb.append((char) cp);
-		}
-		return sb.toString();
-	}
-
+	
 	public JSONObject readJsonFromUrl(String url) throws IOException, ParseException {
 		InputStream is = new URL(url).openStream();
 		try {
 		  BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
-		  //String jsonText = readAll(rd);
 		  JSONParser jsonParser = new JSONParser();
 		  JSONObject json = (JSONObject) jsonParser.parse(rd);	
-		  //JSONObject json = new JSONObject(jsonText);
+		
 		  return json;
 		} finally {
 		  is.close();
@@ -123,16 +114,13 @@ class HotelInformation{
 		out.println("<body>");
 	
 		try {
-			//FileReader reader = new FileReader(filePath);
-
-			//JSONParser jsonParser = new JSONParser();
-			//JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);	
+				
 			JSONObject jsonObject=readJsonFromUrl("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel");				
 			JSONObject offers = (JSONObject)jsonObject.get("offers");
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
 			int hotelsCount=HotelArray.size();
-			
-			out.println("<p>fuckkkkkkkkThere is "+hotelsCount+" hotel deal as parsed from JSON API</p>");
+			req.setAttribute("size",hotelsCount);
+			out.println("<p>There is "+hotelsCount+" hotel deal as parsed from JSON API</p>");
 			out.println("<br><br><hr>");
 			
 			List<HotelInformation> list=new ArrayList<HotelInformation>();
@@ -157,7 +145,7 @@ class HotelInformation{
 				String nightPrice=hotelPricingInfo.get("originalPricePerNight").toString();
 				
 				HotelInformation info=new HotelInformation();
-
+				
 				
 				info.setDest(dest);
 				info.setTripDate(tripDate);

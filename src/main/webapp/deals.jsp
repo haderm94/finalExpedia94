@@ -1,53 +1,6 @@
-<%@page import="java.util.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<%!
-public static class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description;
-	public HotelInformation(){}
-	
-    public String getDest() {
-        return dest;
-    }
 
-    public void setDest(String dest) {
-        this.dest = dest;
-    }
-
-    public String getTripDate() {
-        return tripDate;
-    }
-
-    public void setTripDate(String tripDate) {
-        this.tripDate = tripDate;
-    }
-
-    public String getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(String ratings) {
-        this.ratings = ratings;
-    }
-
-    public String getImgPath() {
-        return imgPath;
-    }
-
-    public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-}
-%>
 <html>
 <title>Deals</title>
 <meta charset="UTF-8">
@@ -66,7 +19,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
   <a href="#food" onclick="w3_close()">Food</a>
   <a href="#about" onclick="w3_close()">About</a>
 </nav>
-
+<c:out value="${size}"/>
 <!-- Top menu -->
 <div class="w3-top">
   <div class="w3-white w3-xlarge w3-padding-xlarge" style="max-width:1200px;margin:auto">
