@@ -80,7 +80,7 @@ public class HotelServices  {
 			info.setHotelName(hotelName);
 			info.setPrice(nightPrice);
 			list.add(info); /**/
-			}
+			
 	
 		}
 		return list;
