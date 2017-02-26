@@ -79,29 +79,12 @@ public class HotelServices  {
      *  to display html page with hotel information inside it.
      *  @param out,hotelsCount,list 
      */
-	public void display(PrintWriter out,int hotelsCount,List<HotelInformation> list){
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>Exp94</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<p>There is "+hotelsCount+" hotel deal as parsed from JSON API</p>");
-		out.println("<br><br><hr>");
-		for(HotelInformation hotel : list){
-			out.println("<h3>"+hotel.getHotelName()+"</h3>");
-			out.println("<img src=\""+hotel.getImgPath()+"\">");
-			out.println("<p>"+hotel.getDest()+"</p>");
-			out.println("<p>"+hotel.getTripDate()+"</p>");
-			out.println("<p>"+hotel.getRatings()+"</p>");
-			out.println("<p>"+hotel.getDescription()+"</p><br>");
-			out.println("<p> Price per night: "+hotel.getPrice()+" US</p>");
-			
-			out.println("<br><br><hr>");
-		 
-		}
-		out.println("</body>");
-		out.println("</html>");
-		out.close();
+	public void dispatch(int hotelsCount,List<HotelInformation> list,HttpServletRequest req,HttpServletRequest resp){
+		req.setAttribute("hotelsCount",hotelsCount);
+		req.setAttribute("listOfHotels",list);
+		RequestDispatcher reqDispatcher=req.getRequestDispatcher("deals.jsp");//forward the same req
+        reqDispatcher.forward(req, resp);
+	
 	}
 	
 }

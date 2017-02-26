@@ -3,7 +3,6 @@
  * The class (Controller) that controls request and prepare response 
  */
 package servlet;
-
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -32,15 +31,12 @@ public class HelloServlet extends HttpServlet {
             throws ServletException, IOException {
 		
 		HotelServices hotelServices=new HotelServices();//instance of the service class to do all processing
-		PrintWriter out = resp.getWriter();	//to write response back to the browser	
-		resp.setContentType("text/html"); //define what the browser must do with the response
-        resp.setCharacterEncoding("UTF-8");
 		try {	//try block to throw JSONException and IOException
 			//define jsonObject which is the result of making a live call to JSON API
 			JSONObject jsonObject=hotelServices.readJsonFromUrl("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel");				
 			JSONObject offers = (JSONObject)jsonObject.get("offers");//get the object offers from the API
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");//get the array that contains all hotels from offers object
-			hotelServices.display(out,HotelArray.size(),hotelServices.allHotels(HotelArray));//print back the response
+			hotelServices.dispatch(HotelArray.size(),hotelServices.allHotels(HotelArray),req,resp);//dispatch request to deals,jsp (view)
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
