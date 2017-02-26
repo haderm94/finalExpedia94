@@ -36,7 +36,7 @@ public class HelloServlet extends HttpServlet {
 			JSONObject jsonObject=hotelServices.readJsonFromUrl("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel");				
 			JSONObject offers = (JSONObject)jsonObject.get("offers");//get the object offers from the API
 			JSONArray HotelArray= (JSONArray) offers.get("Hotel");//get the array that contains all hotels from offers object
-			hotelServices.dispatch(HotelArray.size(),hotelServices.allHotels(HotelArray),req,resp);//dispatch request to deals,jsp (view)
+			hotelServices.dispatch(hotelServices.allHotels(HotelArray),req,resp);//dispatch request to deals,jsp (view)
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
