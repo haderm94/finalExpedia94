@@ -3,15 +3,15 @@ Hotel deals parsed from JSON API as assignment for Expedia company
 By Mohammad Hader
 This website is hosted on heroku: https://exp94.herokuapp.com/
 
-Language: Java - maven
-Design:  MVC 
-Components: 
-	1) launch: Main.java --> define the path to the controller 
-	2) view: index.jsp --> welcoming page
-	3) view: deals.jsp --> view all hotel deals
-	3) model: HotelInformation.java --> contains hotel attributes
-	4) controller: HelloServlet.java -->process request and create response
-	5) service class: HelloService.java --> contains all functions to process JSON API
+Language: Java - maven<br />
+Design:  MVC <br />
+Components: <br />
+	1) launch: Main.java --> define the path to the controller <br />
+	2) view: index.jsp --> welcoming page<br />
+	3) view: deals.jsp --> view all hotel deals<br />
+	3) model: HotelInformation.java --> contains hotel attributes<br />
+	4) controller: HelloServlet.java -->process request and create response<br />
+	5) service class: HelloService.java --> contains all functions to process JSON API<br />
 
 Setting the application:
 
