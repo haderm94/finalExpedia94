@@ -11,32 +11,16 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
 .w3-sidenav a {padding:20px}
 </style>
 <body>
-	<div>
-	  <ul>
-		<li>
-		  <img src="http://lorempixum.com/100/100/nature/1" >
-		  <h3>The Grasslands</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
-		</li>
-		  
-		<li>
-		  <img src="http://lorempixum.com/100/100/nature/2" >
-		  <h3>Paradise Found</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
-		</li>
-
-		<li>
-		  <img src="http://lorempixum.com/100/100/nature/3" >
-		  <h3>Smoke On The Water</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
-		</li>
-
-		<li>
-		  <img src="http://lorempixum.com/100/100/nature/4" >
-		  <h3>Headline</h3>
-		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod ultrices ante, ac laoreet nulla vestibulum adipiscing. Nam quis justo in augue auctor imperdiet.</p>
-		</li>
-	  </ul>
-	</div>
+	<c:forEach items="${listOfHotels}" var="item">    
+    	<div>
+		  <ul>
+			<li>
+			  <img src="<c:out value="${item.getImgPath()}"/>" >
+			  <h3><c:out value="${item.getHotelName()}"/></h3>
+			  <p><c:out value="${item.getDescription()}"/></p>
+			</li>
+		  </ul>
+		</div>
+	</c:forEach>
 </body>
 </html>
