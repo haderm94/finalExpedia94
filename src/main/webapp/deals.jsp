@@ -40,7 +40,7 @@ li {
 
 li:hover {
   background: #eee;
-  cursor: pointer;
+  
 }
 </style>
 <body>
