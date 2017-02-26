@@ -58,15 +58,6 @@ public class Main {
         //Set execution independent of current thread context classloader (compatibility with exec:java mojo)
         ctx.setParentClassLoader(Main.class.getClassLoader());
 
-        //Disable TLD scanning by default
-        if (System.getProperty(Constants.SKIP_JARS_PROPERTY) == null && System.getProperty(Constants.SKIP_JARS_PROPERTY) == null) {
-            System.out.println("disabling TLD scanning");
-            StandardJarScanFilter jarScanFilter = (StandardJarScanFilter) ctx.getJarScanner().getJarScanFilter();
-            jarScanFilter.setTldSkip("*");
-        }
-
-        System.out.println("configuring app with basedir: " + webContentFolder.getAbsolutePath());
-
         // Declare an alternative location for your "WEB-INF/classes" dir
         // Servlet 3.0 annotation will work
         File additionWebInfClassesFolder = new File(root.getAbsolutePath(), "target/classes");

@@ -3,10 +3,8 @@
  * The class (model) that contains the attributes for JSON API 
  */
 package servlet;
-
-
 public class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description,hotelName,price;
+    private String dest,tripDate,ratings,imgPath,description,hotelName,price;//Attributes of JSON API
 	public HotelInformation(){}
 	public String getPrice() {
         return price;

@@ -3,10 +3,10 @@
  * The class (Controller) that controls request and prepare response 
  */
 package servlet;
+
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.Charset;
-
 import java.io.File;
 import java.util.*;
 import java.util.List;
@@ -15,8 +15,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
-
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -29,28 +27,23 @@ import javax.servlet.http.HttpServletResponse;
         urlPatterns = {"/hello"}
     )
 public class HelloServlet extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 		
 		HotelServices hotelServices=new HotelServices();//instance of the service class to do all processing
-		PrintWriter out = resp.getWriter();		
-		resp.setContentType("text/html"); 
+		PrintWriter out = resp.getWriter();	//to write response back to the browser	
+		resp.setContentType("text/html"); //define what the browser must do with the response
         resp.setCharacterEncoding("UTF-8");
-	
-		try {
-				
+		try {	//try block to throw JSONException and IOException
+			//define jsonObject which is the result of making a live call to JSON API
 			JSONObject jsonObject=hotelServices.readJsonFromUrl("https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel");				
-			JSONObject offers = (JSONObject)jsonObject.get("offers");
-			JSONArray HotelArray= (JSONArray) offers.get("Hotel");
-			
-			hotelServices.display(out,HotelArray.size(),hotelServices.allHotels(HotelArray));
-			
+			JSONObject offers = (JSONObject)jsonObject.get("offers");//get the object offers from the API
+			JSONArray HotelArray= (JSONArray) offers.get("Hotel");//get the array that contains all hotels from offers object
+			hotelServices.display(out,HotelArray.size(),hotelServices.allHotels(HotelArray));//print back the response
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		
 		return;
 	}
 }
