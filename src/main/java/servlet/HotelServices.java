@@ -55,8 +55,8 @@ public class HotelServices  {
 			JSONObject hotelUrls = (JSONObject)innerObj.get("hotelUrls");
 			//Creating bunch of string to use them in model
 			String dest="Destination: "+ destination.get("country") + "-"+ destination.get("city") +",   Region ID: " + destination.get("regionID");
-			String tripDate="Trip starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ "<br>Length of Stay " + offerDateRange.get("lengthOfStay");
-			String ratings="hotel Star Rating: "+ hotelInfo.get("hotelStarRating")+"<br>"+"hotel Guest Review Rating: " + hotelInfo.get("hotelGuestReviewRating");
+			String tripDate="Starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ ", 	Length of Stay " + offerDateRange.get("lengthOfStay");
+			String ratings="hotel Star Rating: "+ hotelInfo.get("hotelStarRating")+"\r\nhotel Guest Review Rating: " + hotelInfo.get("hotelGuestReviewRating");
 			String hotelName=hotelInfo.get("hotelName").toString();
 			String imgPath=hotelInfo.get("hotelImageUrl").toString();
 			String description=hotelInfo.get("description").toString();
