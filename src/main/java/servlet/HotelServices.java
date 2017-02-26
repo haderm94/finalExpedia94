@@ -79,7 +79,7 @@ public class HotelServices  {
      *  to display html page with hotel information inside it.
      *  @param out,hotelsCount,list 
      */
-	public void dispatch(int hotelsCount,List<HotelInformation> list,HttpServletRequest req,HttpServletResponseresp){
+	public void dispatch(int hotelsCount,List<HotelInformation> list,HttpServletRequest req,HttpServletResponse resp){
 		req.setAttribute("hotelsCount",hotelsCount);
 		req.setAttribute("listOfHotels",list);
 		RequestDispatcher reqDispatcher=req.getRequestDispatcher("deals.jsp");//forward the same req
