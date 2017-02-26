@@ -23,4 +23,5 @@ Setting the application:
 	6) using JSTL in deals.jsp to interact with request scope.
 	7) initializing Git repository then commiting changes.
 	8) pushing project into Heroku's cloud.
-
+	
+NOTE: I tried deploying with Dropwizard/Spring boot but turns out it's a huge library and i couldn't learn it in a day.
