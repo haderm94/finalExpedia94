@@ -53,7 +53,8 @@ li:hover {
 			  <p><strong>Description: </strong><c:out value="${item.getDescription()}"/></p>
 			  <p><strong>Destination: </strong><c:out value="${item.getDest()}"/></p>
 			  <p><strong>Trip date: </strong><c:out value="${item.getTripDate()}"/></p>
-			  <p><strong>Hotel Ratings: </strong><c:out value="${item.getRatings()}"/></p>
+			  <p><strong>Hotel Star Ratings: </strong><c:out value="${item.getStarRatings()}"/></p>
+			  <p><strong>Hotel Guest Ratings: </strong><c:out value="${item.getGuestRatings()}"/></p>
 			  <p><strong>Night's price: </strong><c:out value="${item.getPrice()}"/>&thinsp;USD</p>
 			</li>
 			<hr>

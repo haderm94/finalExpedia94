@@ -56,7 +56,8 @@ public class HotelServices  {
 			//Creating bunch of string to use them in model
 			String dest=destination.get("country") + "-"+ destination.get("city") +",   Region ID: " + destination.get("regionID");
 			String tripDate="Starts at: "+ hotelInfo.get("travelStartDate") + " To " + hotelInfo.get("travelEndDate")+ ", 	Length of Stay " + offerDateRange.get("lengthOfStay");
-			String ratings="hotel Star Rating: "+ hotelInfo.get("hotelStarRating")+System.lineSeparator()+"\thotel Guest Review Rating: " + hotelInfo.get("hotelGuestReviewRating");
+			String starRatings=hotelInfo.get("hotelStarRating")
+			String guestRatings=hotelInfo.get("hotelGuestReviewRating");
 			String hotelName=hotelInfo.get("hotelName").toString();
 			String imgPath=hotelInfo.get("hotelImageUrl").toString();
 			String description=hotelInfo.get("description").toString();
@@ -65,7 +66,8 @@ public class HotelServices  {
 			HotelInformation info=new HotelInformation();
 			info.setDest(dest);
 			info.setTripDate(tripDate);
-			info.setRatings(ratings);
+			info.setStarRatings(starRatings);
+			info.setGuestRatings(guestRatings);
 			info.setImgPath(imgPath);
 			info.setDescription(description);
 			info.setHotelName(hotelName);

@@ -4,7 +4,7 @@
  */
 package servlet;
 public class HotelInformation{
-    private String dest,tripDate,ratings,imgPath,description,hotelName,price;//Attributes of JSON API
+    private String dest,tripDate,GuestRatings,StarRatings,imgPath,description,hotelName,price;//Attributes of JSON API
 	public HotelInformation(){}
 	public String getPrice() {
         return price;
@@ -35,14 +35,20 @@ public class HotelInformation{
         this.tripDate = tripDate;
     }
 
-    public String getRatings() {
-        return ratings;
+    public String getStarRatings() {
+        return StarRatings;
     }
 
-    public void setRatings(String ratings) {
-        this.ratings = ratings;
+    public void setStarRatings(String StarRatings) {
+        this.StarRatings = StarRatings;
+    }
+	public String getGuestRatings() {
+        return GuestRatings;
     }
 
+    public void setGuestRatings(String GuestRatings) {
+        this.GuestRatings = GuestRatings;
+    }
     public String getImgPath() {
         return imgPath;
     }
